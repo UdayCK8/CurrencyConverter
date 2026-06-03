@@ -1,3 +1,6 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 /* Reset */
 *{
     margin:0;
@@ -5,135 +8,361 @@
     box-sizing:border-box;
 }
 
-/* Body Styling */
+/* Body */
 body{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background:linear-gradient(135deg,#07eba7,#82da73);
+    font-family:'Poppins',sans-serif;
+    min-height:100dvh;
     display:flex;
     justify-content:center;
     align-items:center;
-    min-height:100vh;
     padding:20px;
+
+    background:linear-gradient(
+        135deg,
+        #00c6ff,
+        #e65e75,
+        #00dbde
+    );
+
+    background-size:300% 300%;
+    animation:bgMove 10s ease infinite;
+
+    transition:0.4s ease;
+}
+
+/* Animated Background */
+@keyframes bgMove{
+    0%{
+        background-position:0% 50%;
+    }
+    50%{
+        background-position:100% 50%;
+    }
+    100%{
+        background-position:0% 50%;
+    }
 }
 
 /* Converter Card */
 .converter{
-    background:#fff;
     width:100%;
-    max-width:380px;
-    border-radius:20px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.2);
-    padding:30px 25px;
-    display:flex;
-    flex-direction:column;
-    gap:18px;
+    max-width:450px;
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.2);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    box-shadow:
+        0 8px 32px rgba(0,0,0,0.25);
+
+    transition:0.4s ease;
+
     text-align:center;
-    transition:0.3s ease;
 }
 
+/* Desktop Hover */
 .converter:hover{
     transform:translateY(-5px);
 }
 
-/* Title */
+/* Heading */
 .converter h2{
-    color:#333;
-    font-size:28px;
+    font-size:30px;
+    font-weight:700;
+    color:white;
+    margin-bottom:20px;
 }
 
-/* Labels */
-label{
-    display:block;
-    font-weight:600;
-    color:#555;
-    margin-bottom:8px;
+/* Input Groups */
+.input-group{
+    margin-bottom:18px;
     text-align:left;
 }
 
-/* Input & Select */
+label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:600;
+    color:white;
+}
+
+/* Inputs & Selects */
 input,
 select{
     width:100%;
-    padding:12px 15px;
+    min-height:48px;
+
+    padding:14px 16px;
+
+    border:none;
+    border-radius:12px;
+
     font-size:16px;
-    border:1px solid #ddd;
-    border-radius:10px;
-    background:#f7f7f7;
+
+    background:rgba(255,255,255,0.2);
+    color:white;
+
+    backdrop-filter:blur(8px);
+
     transition:0.3s;
 }
 
-/* Focus Effect */
+input::placeholder{
+    color:#eaeaea;
+}
+
 input:focus,
 select:focus{
     outline:none;
-    border-color:#6e8efb;
-    box-shadow:0 0 8px rgba(110,142,251,0.4);
-    background:#fff;
+
+    background:rgba(255,255,255,0.3);
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.3);
 }
 
-/* Button */
+/* Dropdown Text Color */
+select option{
+    color:#000;
+}
+
+/* Buttons */
 button{
-    background:linear-gradient(135deg,#6e8efb,#a777e3);
-    color:#fff;
     border:none;
-    padding:14px;
-    font-size:16px;
-    border-radius:12px;
     cursor:pointer;
-    font-weight:bold;
-    transition:0.3s;
+    font-weight:600;
+    transition:0.3s ease;
+
+    min-height:48px;
+    touch-action:manipulation;
 }
 
-button:hover{
-    background:linear-gradient(135deg,#5a6de0,#9360d1);
-    transform:translateY(-2px);
+/* Convert Button */
+#convertBtn{
+    width:100%;
+    padding:15px;
+
+    background:linear-gradient(
+        135deg,
+        #ff9966,
+        #ff5e62
+    );
+
+    color:white;
+
+    border-radius:12px;
+
+    font-size:16px;
+}
+
+#convertBtn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(255,94,98,0.4);
+}
+
+/* Theme Button */
+#themeBtn{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,0.2);
+    color:white;
+}
+
+#themeBtn:hover{
+    background:rgba(255,255,255,0.3);
+}
+
+/* Swap Button */
+#swapBtn{
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    font-size:24px;
+
+    margin:15px auto;
+
+    background:rgba(255,255,255,0.2);
+
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#swapBtn:hover{
+    transform:rotate(180deg);
+
+    background:rgba(255,255,255,0.35);
 }
 
 /* Result */
 #result{
-    font-size:20px;
+    margin-top:20px;
+
+    color:white;
+
+    font-size:22px;
     font-weight:600;
-    color:#333;
-    margin-top:10px;
+
+    line-height:1.5;
+
+    word-break:break-word;
 }
 
-/* Mobile Responsive */
-@media (max-width:480px){
+/* =========================
+   DARK MODE
+========================= */
 
-    body{
-        padding:15px;
-    }
+body.dark{
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b,
+        #111827
+    );
+}
+
+body.dark .converter{
+    background:rgba(17,24,39,0.8);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.6);
+}
+
+body.dark input,
+body.dark select{
+    background:rgba(255,255,255,0.08);
+    color:white;
+}
+
+body.dark input::placeholder{
+    color:#bdbdbd;
+}
+
+body.dark #themeBtn,
+body.dark #swapBtn{
+    background:rgba(255,255,255,0.08);
+}
+
+body.dark #convertBtn{
+    background:linear-gradient(
+        135deg,
+        #ab5c78,
+        #d04c4c
+    );
+}
+
+/* =========================
+   TABLETS
+========================= */
+
+@media screen and (min-width:481px) and (max-width:768px){
 
     .converter{
-        padding:20px;
-        border-radius:15px;
+        max-width:500px;
+        padding:28px;
     }
 
     .converter h2{
-        font-size:24px;
+        font-size:26px;
+    }
+}
+
+/* =========================
+   MOBILE PHONES
+========================= */
+
+@media screen and (max-width:480px){
+
+    body{
+        padding:12px;
+        align-items:flex-start;
+        padding-top:25px;
+    }
+
+    .converter{
+        width:100%;
+        max-width:100%;
+
+        padding:20px;
+
+        border-radius:20px;
+    }
+
+    .converter h2{
+        font-size:22px;
+        margin-bottom:15px;
+    }
+
+    label{
+        font-size:14px;
     }
 
     input,
-    select,
-    button{
+    select{
+        font-size:16px;
+        padding:13px;
+        min-height:48px;
+    }
+
+    #themeBtn,
+    #convertBtn{
         font-size:15px;
-        padding:12px;
+        min-height:48px;
+    }
+
+    #swapBtn{
+        width:55px;
+        height:55px;
+        font-size:20px;
     }
 
     #result{
-        font-size:18px;
+        font-size:16px;
+        margin-top:15px;
     }
 }
 
-/* Large Screens */
-@media (min-width:768px){
+/* =========================
+   TOUCH DEVICES
+========================= */
 
-    .converter{
-        max-width:420px;
-        padding:35px;
+@media (hover:none){
+
+    .converter:hover{
+        transform:none;
     }
 
-    .converter h2{
-        font-size:32px;
+    #convertBtn:hover{
+        transform:none;
+        box-shadow:none;
+    }
+
+    #themeBtn:hover{
+        background:rgba(255,255,255,0.2);
+    }
+
+    #swapBtn:hover{
+        transform:none;
+        background:rgba(255,255,255,0.2);
     }
 }
